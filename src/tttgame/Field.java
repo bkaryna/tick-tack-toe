@@ -33,6 +33,13 @@ public class Field {
         return field[x][y];
     }
 
+    Boolean checkSlotAvailability(int x, int y){
+        if(field[x][y]==' ')
+            return true;
+        else
+            return false;
+    }
+
     void clearField(){
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

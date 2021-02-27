@@ -1,13 +1,14 @@
 package tttgame;
 
+import java.util.Scanner;
+
 public class Player {
     String nickname;
 
     void setNickname(String n){
         nickname=n;
     }
-
-    void showPlayer(){
-        System.out.println(nickname);
+    String getNickname(){
+        return nickname;
     }
 }
