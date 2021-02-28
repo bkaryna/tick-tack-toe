@@ -9,25 +9,32 @@ public class Game {
 
     void setPlayers() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter nicknames\nPlayer 1: ");
+        System.out.print("Enter nicknames\nPlayer 1: ");
         one.setNickname(input.next());
-        System.out.println("Player 2: ");
+        System.out.print("Player 2: ");
         two.setNickname(input.next());
     }
 
     void makeMove(char character){
+        int x, y;
+        do {
         Scanner input = new Scanner(System.in);
         if (character=='x')
-            System.out.println(one.getNickname() + ", enter coordinates: ");
+            System.out.print(one.getNickname() + ", enter coordinates: ");
         else
-            System.out.println(two.getNickname() + ", enter coordinates: ");
-        int x = input.nextInt();
-        int y = input.nextInt();
+            System.out.print(two.getNickname() + ", enter coordinates: ");
+
+            x = input.nextInt();
+            y = input.nextInt();
+
+            if (x>2||y>2||x<0||y<0)
+                System.out.println("Wrong coordinates. Try again.");
+        } while (x>2||y>2||x<0||y<0);
 
         if (board.checkSlotAvailability(x,y)==true)
             board.setSlot(x,y,character);
         else {
-            System.out.println("Wrong coordinates. Try again.");
+            System.out.println("This slot is taken. Try again.");
             makeMove(character);
         }
     }
